@@ -24,13 +24,13 @@ VALUES
 
 INSERT INTO employee(id, first_name, last_name, role_id, manager_id)
 VALUES 
-(1, "Sopee", "Thong", 100),
-(2, "Tommy", "Thong", 800),
+(1, "Sopee", "Thong", 100, 0),
+(2, "Tommy", "Thong", 800, 0),
 (3, "Labat", "Yancey", 650, 800),
 (4, "Sandy", "Ho", 550, 900),
 (5, "Sebastian", "Issa", 450, 100),
 (6, "Asher", "Jones", 450, 100),
 (7, "Dara", "Inthamone", 850, 900),
-(8, "Jonsie", "Jones", 900),
+(8, "Jonsie", "Jones", 900, 0),
 (9, "Sayan", "Marcella", 400, 100),
 (10, "Paulina", "Cohen", 300, 900);

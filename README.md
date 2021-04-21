@@ -20,4 +20,4 @@
   * email: tsopee@gmail.com
 
   ## Screen Record of functionality
- [link] https://drive.google.com/file/d/1f1HLzriFUl8NA3zT1AEbHaiK7VP_cVgW/view
+ https://github.com/sopeethong1/CMS-Employee-Tracker/blob/a926ea66d31e23f4c8d501f95ec9ac8a58cc0ff6/ASSETS/Untitled_%20Apr%2021,%202021%204_18%20AM.gif

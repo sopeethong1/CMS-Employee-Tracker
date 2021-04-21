@@ -31,8 +31,8 @@ const connection = mysql.createConnection({
         message: 'What would you like to do?',
         choices: [
           'View All Employees',
-          'View All Employees By Department',
-          'View All Employees By Manager',
+          'View Departments',
+          'View Roles',
           'Add Employee',
           'Remove Employee',
           'Update Employee Role',
@@ -46,12 +46,12 @@ const connection = mysql.createConnection({
             viewEmployees();
             break;
 
-            case 'View All Employees By Department':
-            viewEmployeeByDept();
+            case 'View Departments':
+            viewDept();
             break;
 
-            case 'View All Employees By Manager': 
-            viewEmployeeByManager();
+            case 'View Roles': 
+            viewRoles();
             break;
 
             case 'Add Employee': 

@@ -19,5 +19,5 @@
   * github username: sopeethong1 
   * email: tsopee@gmail.com
 
-  ## Link to Screen Record of functionality
-  [link] https://drive.google.com/file/d/1f1HLzriFUl8NA3zT1AEbHaiK7VP_cVgW/view
+  ## Screen Record of functionality
+  <iframe src="https://drive.google.com/file/d/1f1HLzriFUl8NA3zT1AEbHaiK7VP_cVgW/preview" width="640" height="480"></iframe>

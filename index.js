@@ -98,22 +98,20 @@ const connection = mysql.createConnection({
         runSearch();
       });
     }
-    const viewEmployeeByDept = () => {
-      const query = "SELECT name FROM department";
-      connection.query(query, function (err, res) {
-        for (var i = 0; i < res.length; i++) {
-          console.log(res[i].name);
-        }
-      });
-    }
-    
-    const viewEmployeeByManager = () => {
-      const query = "SELECT id, first_name, last_name FROM Employee WHERE id IN (SELECT manager_id FROM employee WHERE manager_id IS NOT NULL)";
-      connection.query(query, function (err, res) {
-        for (var i = 0; i < res.length; i++) {
-          console.log(res[i].first_name + " " + res[i].last_name + " || Id: " + res[i].id);
-        }
-    
-        runSearch();
-      });
-    }
+
+    const viewEmployeeByDept = async () => {
+      console.log('Department View');
+      try {
+          let query = 'SELECT * FROM department';
+          connection.query(query, function (err, res) {
+              if (err) throw err;
+              let departmentArray = [];
+              res.forEach(department => departmentArray.push(department));
+              console.table(departmentArray);
+              runSearch();
+          });
+      } catch (err) {
+          console.log(err);
+          runSearch();
+      };
+  }

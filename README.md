@@ -20,5 +20,5 @@
   * email: tsopee@gmail.com
 
   ## Screen Record of functionality
-![image](https://user-images.githubusercontent.com/78446989/115521687-624dff80-a259-11eb-8dfa-cd2daa3e7606.png)
+![gif](https://user-images.githubusercontent.com/78446989/115521687-624dff80-a259-11eb-8dfa-cd2daa3e7606.png)
 

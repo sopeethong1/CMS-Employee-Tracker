@@ -1,3 +1,4 @@
+  
 const mysql = require('mysql');
 const inquirer = require('inquirer');
 
@@ -12,7 +13,7 @@ const connection = mysql.createConnection({
   
     // Be sure to update with your own MySQL password!
     password: 'Target03!',
-    database: 'top_songsDB',
+    database: 'sopeecompany_DB',
   });
 
   
@@ -21,38 +22,6 @@ const connection = mysql.createConnection({
     runSearch();
   });
 
-  const fullView = [
-    'View All Employees',
-    'View All Employees By Department',
-    'View All Employees By Manager',
-    'Add Employee',
-    'Remove Employee',
-    'Update Employee Role',
-    'Update Employee Manager',
-    "Exit"
-
-];
-
-const employeeList = [
-  "Sopee Thong",
-  "Tommy Thong",
-  "Labat Yancey",
-  "Sandy Ho",
-  "Sebastian Issa",
-  "Asher Jones",
-  "Dara Inthamone",
-  "Jonsie Jones",
-  "Sayan Marcella",
-  "Paulina Cohen"
-];
-
-const employeeUpdateOptions = [
-  "Update Employee First Name",
-  "Update Employee Last Name",
-  "Update Employee Role",
-  "Exit Update"
-];
-  // command-line that allows user to view departments, roles, and employees
   const runSearch = () => {
     inquirer
       .prompt({
@@ -67,34 +36,66 @@ const employeeUpdateOptions = [
           'Remove Employee',
           'Update Employee Role',
           'Update Employee Manager',
-          'Exit'
+          'Exit',
         ],
       })
       .then((answer) => {
         switch (answer.action) {
-          case fullView[0]: viewEmployees();
+          case 'View All Employees':
+            viewEmployees();
             break;
 
-            case fullView[1]: viewEmployeeByDept();
+            case 'View All Employees By Department':
+            viewEmployeeByDept();
             break;
 
-            case fullView[2]: viewEmployeeByManager();
+            case 'View All Employees By Manager': 
+            viewEmployeeByManager();
             break;
 
-            case fullView[3]: addEmployee();
+            case 'Add Employee': 
+            addEmployee();
             break;
 
-            case fullView[4]: removeEmployee();
+            case 'Remove Employee': 
+            removeEmployee();
             break;
 
-            case fullView[5]: updateEmployeeRole();
+            case 'Update Employee Role': 
+            updateEmployeeRole();
             break;
             
-            case fullView[6]: updateEmployeeManager();
+            case 'Update Employee Manager':
+            updateEmployeeManager();
             break;
 
-            case fullView[7]: connection.end();
+            case 'Exit': 
+            connection.end();
             break; 
+            default:
+              
+          console.log(`Invalid action: ${answer.action}`);
+          break;
           }
-        })
-    }
+        });
+    };
+
+    const viewEmployees = () => {
+      inquirer
+      .prompt({
+        name: 'Employee',
+        type: 'list',
+        message: 'Which Employee would you like to select?',
+      })
+      .then((answer) => {
+      const query = 'SELECT Employee.first_name, Employee.last_name FROM Employee';
+      connection.query(query, { employee: answer.employee}, (err, res) => {
+        res.forEach(({ first_name, last_name }) => {
+          console.log(
+            `Employee: ${first_name} || Employee: ${last_name}`
+          );
+        });
+        runSearch();
+      });
+    });
+};

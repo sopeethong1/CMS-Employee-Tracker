@@ -20,4 +20,5 @@
   * email: tsopee@gmail.com
 
   ## Screen Record of functionality
-![ Alt text](CMS.gif) / ! [](Untitled_ Apr 21, 2021 4_18 AM.gif)
+![image](https://user-images.githubusercontent.com/78446989/115521687-624dff80-a259-11eb-8dfa-cd2daa3e7606.png)
+

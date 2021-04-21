@@ -19,6 +19,6 @@
   * github username: sopeethong1 
   * email: tsopee@gmail.com
 
-  ## Screen Record of functionality
+  ## Screen Record of Employee Tracker Functionality
 ![Alt Text](https://github.com/sopeethong1/CMS-Employee-Tracker/blob/0e9e56e3281ce276776d71fef2d6740934841902/ASSETS/Untitled_%20Apr%2021,%202021%204_18%20AM.gif)
 

@@ -98,7 +98,7 @@ const connection = mysql.createConnection({
         runSearch();
       });
     }
-    const viewEmployeeByDept = () => {
+    const  viewDept = () => {
       var query = "SELECT * FROM department";
         connection.query(query, function(err, res) {
             console.log(`DEPARTMENTS:`)
@@ -108,3 +108,14 @@ const connection = mysql.createConnection({
           runSearch();
           });
       };
+
+      const  viewRoles = () => {
+        var query = "SELECT * FROM role";
+          connection.query(query, function(err, res) {
+              console.log(`Role:`)
+            res.forEach(role => {
+                console.log(`ID: ${role.id} | Title: ${role.title}`)
+            })
+            runSearch();
+            });
+        };

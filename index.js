@@ -67,18 +67,34 @@ const employeeUpdateOptions = [
           'Remove Employee',
           'Update Employee Role',
           'Update Employee Manager',
+          'Exit'
         ],
       })
       .then((answer) => {
         switch (answer.action) {
-          case fullView[0]: viewEmployee();
+          case fullView[0]: viewEmployees();
             break;
 
-            case fullView[1]: employeeUpdateOptions();
+            case fullView[1]: viewEmployeeByDept();
             break;
 
-            case fullView[3]: viewRole();
+            case fullView[2]: viewEmployeeByManager();
             break;
 
-            case fullView[4]: connection.end();
-            break
+            case fullView[3]: addEmployee();
+            break;
+
+            case fullView[4]: removeEmployee();
+            break;
+
+            case fullView[5]: updateEmployeeRole();
+            break;
+            
+            case fullView[6]: updateEmployeeManager();
+            break;
+
+            case fullView[7]: connection.end();
+            break; 
+          }
+        })
+    }

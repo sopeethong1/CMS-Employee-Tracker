@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS sopee_companyDB;
-CREATE database sopee_companyDB;
+DROP DATABASE IF EXISTS sopeecompany_DB;
+CREATE database sopeecompany_DB;
 
-USE sopee_companyDB;
+USE sopeecompany_DB;
 
 CREATE TABLE department(
   id INT NOT NULL,

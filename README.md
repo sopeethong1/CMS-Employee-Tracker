@@ -20,4 +20,4 @@
   * email: tsopee@gmail.com
 
   ## Screen Record of functionality
-  <iframe src="https://drive.google.com/file/d/1f1HLzriFUl8NA3zT1AEbHaiK7VP_cVgW/preview" width="640" height="480"></iframe>
+ [link] https://drive.google.com/file/d/1f1HLzriFUl8NA3zT1AEbHaiK7VP_cVgW/view

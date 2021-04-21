@@ -91,11 +91,28 @@ const connection = mysql.createConnection({
       LEFT JOIN employee m
       ON m.id = e.manager_id`;
     
-      connection.query(query, function (err, res) {
+      connection.query(query, (err, res) => {
         if (err) throw err;
     
         console.table(res);
-        
+        runSearch();
+      });
+    }
+    const viewEmployeeByDept = () => {
+      const query = "SELECT name FROM department";
+      connection.query(query, function (err, res) {
+        for (var i = 0; i < res.length; i++) {
+          console.log(res[i].name);
+        }
+      });
+    }
+    
+    const viewEmployeeByManager = () => {
+      const query = "SELECT id, first_name, last_name FROM Employee WHERE id IN (SELECT manager_id FROM employee WHERE manager_id IS NOT NULL)";
+      connection.query(query, function (err, res) {
+        for (var i = 0; i < res.length; i++) {
+          console.log(res[i].first_name + " " + res[i].last_name + " || Id: " + res[i].id);
+        }
     
         runSearch();
       });

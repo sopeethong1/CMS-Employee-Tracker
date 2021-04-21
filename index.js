@@ -1,6 +1,7 @@
   
 const mysql = require('mysql');
 const inquirer = require('inquirer');
+var consoleTable = require("console.table");
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -110,3 +111,27 @@ const connection = mysql.createConnection({
         });
       });
   }
+  const viewEmployeeByDept = () => {
+    inquirer
+    .prompt({
+      name: 'Department',
+      type: 'input',
+      message: 'Which Department?',
+      // choices: [
+      //   'Engineering',
+      //   'Aquisitions',
+      //   'Sales',
+      //   'Finance',
+      //   'CustomerSuccess',
+      // ],
+    })
+    .then((answer) => {
+    var query = "SELECT name FROM department";
+    connection.query(query, function (err, res) {
+      for (var i = 0; i < res.length; i++) {
+        console.log(res[i].name);
+      };
+      runSearch();
+    });
+  });
+}

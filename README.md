@@ -9,15 +9,15 @@
   mysql (npm i mysql)
   
   ## Usage
-  Using a built in command-line application and running node employeeTracker.js, this application allows it's user to 
+  Using a built in command-line application and by running node employeeTracker.js, this application allows it's user to:
   
   * Add departments, roles, employees
   * View departments, roles, employees
   * Update employee roles
 
   ## Questions
-  sopeethong1
-  tsopee@gmail.com
+  github username: sopeethong1 
+  email: tsopee@gmail.com,
 
   ##Link to Screen Record of functionality
   [link] 

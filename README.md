@@ -5,8 +5,8 @@
 
   ## Installation
   Install node packages: 
-  inquirer (npm i inquirer)
-  mysql (npm i mysql)
+  * inquirer (npm i inquirer)
+  * mysql (npm i mysql)
   
   ## Usage
   Using a built in command-line application and by running node employeeTracker.js, this application allows it's user to:
@@ -16,8 +16,8 @@
   * Update employee roles
 
   ## Questions
-  github username: sopeethong1 
-  email: tsopee@gmail.com,
+  * github username: sopeethong1 
+  * email: tsopee@gmail.com
 
-  ##Link to Screen Record of functionality
+  ## Link to Screen Record of functionality
   [link] 

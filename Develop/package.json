@@ -18,9 +18,8 @@
   },
   "homepage": "https://github.com/sopeethong1/CMS-Employee-Tracker#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "inquirer": "^8.0.0",
-    "mysql": "^2.18.1",
-    "express": "^4.17.1"
-      }
+    "mysql": "^2.18.1"
   }
-
+}

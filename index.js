@@ -98,20 +98,13 @@ const connection = mysql.createConnection({
         runSearch();
       });
     }
-
-    const viewEmployeeByDept = async () => {
-      console.log('Department View');
-      try {
-          let query = 'SELECT * FROM department';
-          connection.query(query, function (err, res) {
-              if (err) throw err;
-              let departmentArray = [];
-              res.forEach(department => departmentArray.push(department));
-              console.table(departmentArray);
-              runSearch();
-          });
-      } catch (err) {
-          console.log(err);
+    const viewEmployeeByDept = () => {
+      var query = "SELECT * FROM department";
+        connection.query(query, function(err, res) {
+            console.log(`DEPARTMENTS:`)
+          res.forEach(department => {
+              console.log(`ID: ${department.id} | Name: ${department.name}`)
+          })
           runSearch();
+          });
       };
-  }

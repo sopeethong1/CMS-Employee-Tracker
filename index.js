@@ -85,20 +85,8 @@ const connection = mysql.createConnection({
       inquirer
       .prompt({
         name: 'Employee',
-        type: 'list',
+        type: 'input',
         message: 'Which Employee would you like to select?',
-        choices: [
-          'Sopee Thong',
-          'Tommy Thong',
-          'Labat Yancey',
-          'Sandy Ho',
-          'Sebastian Issa',
-          'Asher Jones',
-          'Dara Inthamone',
-          'Jonsie Jones',
-          'Sayan Marcella',
-          'Paulina Cohen',
-        ],
       })
       .then(function (answer) {
         var query = "SELECT first_name, last_name, id FROM employee WHERE ?";
@@ -110,23 +98,18 @@ const connection = mysql.createConnection({
           runSearch();
         });
       });
-  }
+  };
+
   const viewEmployeeByDept = () => {
     inquirer
     .prompt({
       name: 'Department',
       type: 'input',
-      message: 'Which Department?',
-      // choices: [
-      //   'Engineering',
-      //   'Aquisitions',
-      //   'Sales',
-      //   'Finance',
-      //   'CustomerSuccess',
-      // ],
+      message: 'Type which Department?',
+     
     })
     .then((answer) => {
-    var query = "SELECT name FROM department";
+    const query = "SELECT name FROM department";
     connection.query(query, function (err, res) {
       for (var i = 0; i < res.length; i++) {
         console.log(res[i].name);

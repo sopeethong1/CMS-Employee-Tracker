@@ -84,13 +84,13 @@ const connection = mysql.createConnection({
     const viewEmployees = () => {
       inquirer
       .prompt({
-        name: 'Employee',
+        name: 'viewEmployees',
         type: 'input',
         message: 'Which Employee would you like to select?',
       })
-      .then(function (answer) {
-        var query = "SELECT first_name, last_name, id FROM employee WHERE ?";
-        connection.query(query, { last_name: answer.employeeView }, function (err, res) {
+      .then((answer) => {
+        const query = "SELECT first_name, last_name, id FROM employee WHERE ?";
+        connection.query(query, { last_name: answer.viewEmployees }, function (err, res) {
           for (var i = 0; i < res.length; i++) {
             console.log("First Name: " + res[i].first_name + " || Last name: " + res[i].last_name + " || Id: " + res[i].id);
           }
@@ -98,23 +98,33 @@ const connection = mysql.createConnection({
           runSearch();
         });
       });
-  };
-
-  const viewEmployeeByDept = () => {
-    inquirer
-    .prompt({
-      name: 'Department',
-      type: 'input',
-      message: 'Type which Department?',
+  }
+//   const viewEmployeeByDept = () => {
+//     inquirer
+//     .prompt({
+//       name: 'Department',
+//       type: 'input',
+//       message: 'Type which Department?',
      
-    })
-    .then((answer) => {
-    const query = "SELECT name FROM department";
-    connection.query(query, function (err, res) {
-      for (var i = 0; i < res.length; i++) {
-        console.log(res[i].name);
-      };
-      runSearch();
-    });
-  });
-}
+//     })
+//     .then((answer) => {
+//     const query = "SELECT name FROM department";
+//     connection.query(query, function (err, res) {
+//       for (var i = 0; i < res.length; i++) {
+//         console.log(res[i].name);
+//       };
+//       runSearch();
+//     });
+//   });
+// }
+
+// const viewEmployeeByManager = () => {
+//   const query = "SELECT id, first_name, last_name FROM Employee WHERE id IN (SELECT manager_id FROM employee WHERE manager_id IS NOT NULL)";
+//   connection.query(query, function (err, res) {
+//     for (var i = 0; i < res.length; i++) {
+//       console.log(res[i].first_name + " " + res[i].last_name + " || Id: " + res[i].id);
+//     }
+
+//     runSearch();
+//   });
+// }

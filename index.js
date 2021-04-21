@@ -73,7 +73,7 @@ const connection = mysql.createConnection({
             connection.end();
             break; 
             default:
-              
+
           console.log(`Invalid action: ${answer.action}`);
           break;
           }
@@ -86,16 +86,27 @@ const connection = mysql.createConnection({
         name: 'Employee',
         type: 'list',
         message: 'Which Employee would you like to select?',
+        choices: [
+          'Sopee Thong',
+          'Tommy Thong',
+          'Labat Yancey',
+          'Sandy Ho',
+          'Sebastian Issa',
+          'Asher Jones',
+          'Dara Inthamone',
+          'Jonsie Jones',
+          'Sayan Marcella',
+          'Paulina Cohen',
+        ],
       })
-      .then((answer) => {
-      const query = 'SELECT Employee.first_name, Employee.last_name FROM Employee';
-      connection.query(query, { employee: answer.employee}, (err, res) => {
-        res.forEach(({ first_name, last_name }) => {
-          console.log(
-            `Employee: ${first_name} || Employee: ${last_name}`
-          );
+      .then(function (answer) {
+        var query = "SELECT first_name, last_name, id FROM employee WHERE ?";
+        connection.query(query, { last_name: answer.employeeView }, function (err, res) {
+          for (var i = 0; i < res.length; i++) {
+            console.log("First Name: " + res[i].first_name + " || Last name: " + res[i].last_name + " || Id: " + res[i].id);
+          }
+  
+          runSearch();
         });
-        runSearch();
       });
-    });
-};
+  }

@@ -82,49 +82,21 @@ const connection = mysql.createConnection({
     };
 
     const viewEmployees = () => {
-      inquirer
-      .prompt({
-        name: 'viewEmployees',
-        type: 'input',
-        message: 'Which Employee would you like to select?',
-      })
-      .then((answer) => {
-        const query = "SELECT first_name, last_name, id FROM employee WHERE ?";
-        connection.query(query, { last_name: answer.viewEmployees }, function (err, res) {
-          for (var i = 0; i < res.length; i++) {
-            console.log("First Name: " + res[i].first_name + " || Last name: " + res[i].last_name + " || Id: " + res[i].id);
-          }
-  
-          runSearch();
-        });
+      const query = `SELECT e.id, e.first_name, e.last_name, r.title, d.name AS department, r.salary, CONCAT(m.first_name, ' ', m.last_name) AS manager
+      FROM employee e
+      LEFT JOIN role r
+      ON e.role_id = r.id
+      LEFT JOIN department d
+      ON d.id = r.department_id
+      LEFT JOIN employee m
+      ON m.id = e.manager_id`;
+    
+      connection.query(query, function (err, res) {
+        if (err) throw err;
+    
+        console.table(res);
+        
+    
+        runSearch();
       });
-  }
-//   const viewEmployeeByDept = () => {
-//     inquirer
-//     .prompt({
-//       name: 'Department',
-//       type: 'input',
-//       message: 'Type which Department?',
-     
-//     })
-//     .then((answer) => {
-//     const query = "SELECT name FROM department";
-//     connection.query(query, function (err, res) {
-//       for (var i = 0; i < res.length; i++) {
-//         console.log(res[i].name);
-//       };
-//       runSearch();
-//     });
-//   });
-// }
-
-// const viewEmployeeByManager = () => {
-//   const query = "SELECT id, first_name, last_name FROM Employee WHERE id IN (SELECT manager_id FROM employee WHERE manager_id IS NOT NULL)";
-//   connection.query(query, function (err, res) {
-//     for (var i = 0; i < res.length; i++) {
-//       console.log(res[i].first_name + " " + res[i].last_name + " || Id: " + res[i].id);
-//     }
-
-//     runSearch();
-//   });
-// }
+    }
